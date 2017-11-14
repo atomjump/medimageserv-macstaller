@@ -9,4 +9,4 @@ npm config set medimage:configFile ~/medimage/config.json
 pm2 start npm --name "medimage-server" -- start ./medimage-server.sh; cd ~
 pm2 save
 pm2 startup 
-echo "(MedImage Server: copy and run the line above, to get autostart at boot-up)"
+echo "(MedImage Server: copy and run the 'sudo env...' line above, to get autostart at boot-up)"
