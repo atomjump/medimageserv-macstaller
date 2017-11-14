@@ -1,0 +1,11 @@
+pm2 delete medimage-server
+sudo mv "$(npm prefix -global)/lib/node_modules/medimage/config.json" /var/tmp
+sudo mv "$(npm prefix -global)/lib/node_modules/medimage/photos" /var/tmp
+sudo npm install -g medimage
+sudo mv /var/tmp/config.json "$(npm prefix -global)/lib/node_modules/medimage/"
+sudo rm -rf "$(npm prefix -global)/lib/node_modules/medimage/photos"
+sudo mv /var/tmp/photos "$(npm prefix -global)/lib/node_modules/medimage/"
+cp ./config.json "$(npm prefix -global)/lib/node_modules/medimage/config.json"
+cd "$(npm prefix -global)/lib/node_modules/medimage/"
+pm2 start npm --name "medimage-server" -- start
+cd ~
