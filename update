@@ -1,3 +1,4 @@
+#!/bin/bash
 pm2 delete medimage-server
 sudo mv "$(npm prefix -global)/lib/node_modules/medimage/config.json" /var/tmp
 sudo mv "$(npm prefix -global)/lib/node_modules/medimage/photos" /var/tmp
