@@ -1,0 +1,11 @@
+sudo npm install pm2@latest -g
+sudo npm install medimage -g
+sudo chown -R $USER:$(id -gn $USER) /Users/apple/.config
+cd "$(npm prefix -global)/lib/node_modules/medimage/"
+mkdir ~/medimage
+cp newconfig.json ~/medimage/config.json
+npm config set medimage:configFile ~/medimage/config.json
+pm2 start npm --name "medimage-server" -- start ./medimage-server.sh; cd ~
+pm2 save
+pm2 startup 
+echo "(MedImage Server: run the command above, to get autostart at boot-up)"
