@@ -2,9 +2,10 @@
 sudo npm install pm2@latest -g
 sudo npm install medimage -g
 sudo chown -R $USER:$(id -gn $USER) /Users/apple/.config
+mkdir ~/medimage
 cd "$(npm prefix -global)/lib/node_modules/medimage/"
 sudo cp addons/configORIGINAL.json addons/config.json
-sudo cp winconfig.json config.json
+sudo cp winconfig.json ~/medimage/config.json
 pm2 start npm --name "medimage-server" -- start ./medimage-server.sh; cd ~
 pm2 save
 pm2 startup 
