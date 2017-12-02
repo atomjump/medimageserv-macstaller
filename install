@@ -1,4 +1,14 @@
 #!/bin/bash
+
+#Get command line tools and Ruby
+xcode-select --install
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+#Get Node
+brew update
+brew install node
+
+#Get MedImage
 sudo npm install pm2@latest -g
 sudo npm install medimage -g
 sudo chown -R $USER:$(id -gn $USER) /Users/apple/.config
