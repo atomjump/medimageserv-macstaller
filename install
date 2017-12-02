@@ -19,10 +19,8 @@ sudo cp addons/configORIGINAL.json addons/config.json
 sudo cp macconfig.json ~/medimage/config.json
 pm2 start npm --name "medimage-server" -- start ./medimage-server.sh; cd ~
 pm2 save
-pm2 startup 
-echo "(MedImage Server: copy and run the 'sudo env...' line above, to get autostart at boot-up)"
-echo 
-echo 
+pm2 startup | pbcopy
+awk 'f {print; exit} /following command:/ {f=1}' <<< $(pbpaste)
 echo
 echo "Starting MedImage Server in browser..."
 /Applications/Safari.app/Contents/MacOS/Safari & sleep 1 && osascript -e 'tell application "Safari" to open location "http://localhost:5566/pages/addon-settings.html"' > /dev/null 2>&1
