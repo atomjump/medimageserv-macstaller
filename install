@@ -21,3 +21,4 @@ pm2 start npm --name "medimage-server" -- start ./medimage-server.sh; cd ~
 pm2 save
 pm2 startup 
 echo "(MedImage Server: copy and run the 'sudo env...' line above, to get autostart at boot-up)"
+/Applications/Safari.app/Contents/MacOS/Safari & sleep 1 && osascript -e 'tell application "Safari" to open location "http://localhost:5566/pages/addon-settings.html"'
