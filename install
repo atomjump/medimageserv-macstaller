@@ -12,8 +12,9 @@ brew install node
 sudo npm install pm2@latest -g
 pm2 delete medimage-server
 sudo npm install medimage -g
-sudo chown -R $USER:$(id -gn $USER) /Users/apple/.config
+sudo chown -R $USER:$(id -gn $USER) /Users/$(id -un)/.config
 mkdir ~/medimage
+mkdir ~/medimage/photos
 cd "$(npm prefix -global)/lib/node_modules/medimage/"
 sudo cp addons/configORIGINAL.json addons/config.json
 sudo cp macconfig.json ~/medimage/config.json
