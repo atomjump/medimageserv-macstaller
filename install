@@ -23,4 +23,5 @@ pm2 startup | pbcopy
 awk 'f {print; exit} /following command:/ {f=1}' <<< $(pbpaste)
 echo
 echo "Starting MedImage Server in browser..."
+sleep 2
 /Applications/Safari.app/Contents/MacOS/Safari & sleep 1 && osascript -e 'tell application "Safari" to open location "http://localhost:5566/pages/addon-settings.html"' > /dev/null 2>&1
