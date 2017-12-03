@@ -15,6 +15,7 @@ sudo npm install medimage -g
 sudo chown -R $USER:$(id -gn $USER) /Users/$(id -un)/.config
 mkdir ~/medimage
 mkdir ~/medimage/photos
+sleep 2
 cd "$(npm prefix -global)/lib/node_modules/medimage/"
 sudo cp addons/configORIGINAL.json addons/config.json
 sudo cp macconfig.json ~/medimage/config.json
