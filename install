@@ -15,11 +15,14 @@ sudo npm install medimage -g
 sudo chown -R $USER:$(id -gn $USER) /Users/$(id -un)/.config
 mkdir ~/medimage
 mkdir ~/medimage/photos
+sudo chown $(id -un) ~/medimage
+sudo chown $(id -un) ~/medimage/photos
 sleep 2
 cd "$(npm prefix -global)/lib/node_modules/medimage/"
 cp addons/configORIGINAL.json addons/config.json
 sudo chown $(id -un) addons/config.json
 sudo cp macconfig.json ~/medimage/config.json
+sudo chown $(id -un) ~/medimage/config.json
 npm set medimage:configFile ~/medimage/config.json
 pm2 start npm --name "medimage-server" -- start ./medimage-server.sh; cd ~
 pm2 save
@@ -27,5 +30,5 @@ pm2 startup | pbcopy
 awk 'f {print; exit} /following command:/ {f=1}' <<< $(pbpaste)
 echo
 echo "Starting MedImage Server in browser..."
-sleep 2
+sleep 4
 /Applications/Safari.app/Contents/MacOS/Safari & sleep 1 && osascript -e 'tell application "Safari" to open location "http://localhost:5566/pages/addon-settings.html"' > /dev/null 2>&1
